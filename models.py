@@ -317,7 +317,7 @@ class Neck(nn.Module):
         x18 = self.conv18(x17)
         x19 = self.conv19(x18)
         x20 = self.conv20(x19)
-        return x20, x13, x6
+        return tuple((x20, x13, x6))
 
 
 class Yolov4Head(nn.Module):
@@ -403,7 +403,7 @@ class Yolov4Head(nn.Module):
             return get_region_boxes([y1, y2, y3])
         
         else:
-            return [x2, x10, x18]
+            return tuple([x2, x10, x18])
 
 
 class Yolov4(nn.Module):

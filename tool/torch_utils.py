@@ -61,7 +61,7 @@ def get_region_boxes(boxes_and_confs):
     boxes = torch.cat(boxes_list, dim=1)
     confs = torch.cat(confs_list, dim=1)
         
-    return [boxes, confs]
+    return tuple([boxes, confs])
 
 
 def convert2cpu(gpu_matrix):
